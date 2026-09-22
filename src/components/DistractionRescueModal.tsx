@@ -98,12 +98,12 @@ export const DistractionRescueModal: React.FC<DistractionRescueModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in">
-      <div className="relative w-full max-w-lg rounded-3xl border border-amber-500/30 bg-gradient-to-b from-[#14120E] via-[#0E0C09] to-[#07080C] p-6 sm:p-7 text-white shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-fade-in">
+      <div className="relative w-full max-w-lg max-h-[92dvh] overflow-y-auto rounded-3xl border border-amber-500/30 bg-gradient-to-b from-[#14120E] via-[#0E0C09] to-[#07080C] p-5 sm:p-7 text-white shadow-2xl">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 rounded-full p-2 text-slate-400 hover:bg-white/[0.06] hover:text-white transition-colors"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 rounded-full p-2 text-slate-400 hover:bg-white/[0.06] hover:text-white transition-colors"
         >
           <X className="h-5 w-5" />
         </button>

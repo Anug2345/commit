@@ -353,13 +353,13 @@ export const HistoryProgress: React.FC<HistoryProgressProps> = ({
           </h2>
 
           {/* Category Filter Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full">
             {['all', 'Education', 'Deep Work', 'Health & Wellness', 'Creative', 'Life Admin'].map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setFilterCategory(cat)}
-                className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                className={`rounded-full px-3 py-1 text-xs font-medium transition-colors shrink-0 ${
                   filterCategory === cat
                     ? 'bg-indigo-600 text-white shadow-sm'
                     : 'bg-white/[0.04] text-slate-400 hover:text-white'

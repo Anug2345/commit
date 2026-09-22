@@ -93,17 +93,17 @@ export const Header: React.FC<HeaderProps> = ({
         )}
 
         {/* Right Stats & Settings */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
           {/* Freedom Minutes Vault Button */}
           <button
             type="button"
             onClick={onOpenVault}
             title="Freedom Minutes Vault: Click to spend or manage screen time"
-            className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-300 hover:bg-emerald-500/20 hover:border-emerald-500/50 active:scale-95 transition-all"
+            className="flex items-center gap-1 sm:gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold text-emerald-300 hover:bg-emerald-500/20 hover:border-emerald-500/50 active:scale-95 transition-all shrink-0"
           >
-            <Clock className="h-3.5 w-3.5 text-emerald-400" />
+            <Clock className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
             <span>{stats.availableScreenTimeMinutes}m</span>
-            <span className="hidden text-[11px] font-normal text-emerald-400/80 lg:inline">Freedom</span>
+            <span className="hidden lg:inline text-[11px] font-normal text-emerald-400/80">Freedom</span>
           </button>
 
           {/* Distraction Rescue Button */}
@@ -111,18 +111,18 @@ export const Header: React.FC<HeaderProps> = ({
             type="button"
             onClick={onOpenRescue}
             title="Distraction Rescue: Urge surfing & emergency pause"
-            className="flex items-center gap-1 rounded-full border border-amber-500/30 bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-300 hover:bg-amber-500/20 hover:border-amber-500/50 active:scale-95 transition-all"
+            className="flex items-center gap-1 rounded-full border border-amber-500/30 bg-amber-500/10 px-2 sm:px-2.5 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold text-amber-300 hover:bg-amber-500/20 hover:border-amber-500/50 active:scale-95 transition-all shrink-0"
           >
-            <LifeBuoy className="h-3.5 w-3.5 text-amber-400" />
+            <LifeBuoy className="h-3.5 w-3.5 text-amber-400 shrink-0" />
             <span className="hidden sm:inline">Rescue</span>
           </button>
 
           {/* Streak Pill */}
           <div
             title={`Current streak: ${stats.currentStreak} consecutive days keeping promises`}
-            className="flex items-center gap-1.5 rounded-full border border-amber-500/20 bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-300"
+            className="flex items-center gap-1 sm:gap-1.5 rounded-full border border-amber-500/20 bg-amber-500/10 px-2 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold text-amber-300 shrink-0"
           >
-            <Flame className="h-3.5 w-3.5 text-amber-400" />
+            <Flame className="h-3.5 w-3.5 text-amber-400 shrink-0" />
             <span>{stats.currentStreak}d</span>
           </div>
 
@@ -131,17 +131,17 @@ export const Header: React.FC<HeaderProps> = ({
             id="header-help-button"
             onClick={onOpenOnboarding}
             title="Philosophy & How it Works"
-            className="rounded-full p-2 text-slate-400 transition-colors hover:bg-white/[0.06] hover:text-white"
+            className="rounded-full p-1.5 sm:p-2 text-slate-400 transition-colors hover:bg-white/[0.06] hover:text-white shrink-0"
           >
             <HelpCircle className="h-4 w-4" />
           </button>
 
-          {/* Settings button */}
+          {/* Settings button (hidden on mobile header because it is in mobile bottom nav) */}
           <button
             id="header-settings-button"
             onClick={() => setCurrentTab('settings')}
             title="Platform Settings & Screen Time APIs"
-            className={`rounded-full p-2 transition-colors ${
+            className={`hidden md:block rounded-full p-2 transition-colors shrink-0 ${
               currentTab === 'settings'
                 ? 'bg-indigo-600/30 text-indigo-300 ring-1 ring-indigo-500/40'
                 : 'text-slate-400 hover:bg-white/[0.06] hover:text-white'

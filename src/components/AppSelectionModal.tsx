@@ -67,10 +67,10 @@ export const AppSelectionModal: React.FC<AppSelectionModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-2xl rounded-2xl border border-white/[0.12] bg-[#0C0E17] p-5 sm:p-7 shadow-2xl text-white my-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md">
+      <div className="relative w-full max-w-2xl max-h-[92dvh] overflow-y-auto rounded-2xl border border-white/[0.12] bg-[#0C0E17] p-4 sm:p-7 shadow-2xl text-white my-auto">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-white/[0.08] pb-4 mb-5">
+        <div className="flex items-center justify-between border-b border-white/[0.08] pb-4 mb-4 sm:mb-5">
           <div className="flex items-center gap-2">
             <button
               onClick={onClose}
@@ -189,11 +189,11 @@ export const AppSelectionModal: React.FC<AppSelectionModalProps> = ({
         </div>
 
         {/* Actions */}
-        <div className="flex items-center justify-between gap-3 border-t border-white/[0.08] pt-4">
+        <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-white/[0.08] pt-4">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 text-xs font-medium text-slate-400 hover:text-white transition-colors"
+            className="px-4 py-2.5 text-xs font-medium text-slate-400 hover:text-white transition-colors text-center"
           >
             Back
           </button>
@@ -203,9 +203,9 @@ export const AppSelectionModal: React.FC<AppSelectionModalProps> = ({
             type="button"
             disabled={selectedIds.length === 0}
             onClick={() => onStartFocus(selectedIds)}
-            className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 via-indigo-600 to-blue-600 px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-xl shadow-indigo-600/30 transition-all hover:brightness-110 disabled:opacity-50"
+            className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 via-indigo-600 to-blue-600 px-5 sm:px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-xl shadow-indigo-600/30 transition-all hover:brightness-110 disabled:opacity-50"
           >
-            <Play className="h-4 w-4 fill-white" />
+            <Play className="h-4 w-4 fill-white shrink-0" />
             <span>Lock In & Start Focus (⏱ {draftCommitment.durationMinutes}m)</span>
           </button>
         </div>

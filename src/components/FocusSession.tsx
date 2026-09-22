@@ -206,11 +206,11 @@ export const FocusSession: React.FC<FocusSessionProps> = ({
       <div className="my-auto flex flex-col items-center justify-center text-center py-6">
         {/* Circular Progress Ring */}
         <div className="relative flex items-center justify-center">
-          <svg className="w-72 h-72 sm:w-80 sm:h-80 -rotate-90 transform">
+          <svg viewBox="0 0 300 300" className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 -rotate-90 transform">
             {/* Background ring */}
             <circle
-              cx="50%"
-              cy="50%"
+              cx="150"
+              cy="150"
               r={radius}
               className="stroke-white/[0.06]"
               strokeWidth="10"
@@ -218,8 +218,8 @@ export const FocusSession: React.FC<FocusSessionProps> = ({
             />
             {/* Animated Progress ring */}
             <circle
-              cx="50%"
-              cy="50%"
+              cx="150"
+              cy="150"
               r={radius}
               className="stroke-indigo-500 transition-all duration-700 ease-out"
               strokeWidth="10"
@@ -256,8 +256,8 @@ export const FocusSession: React.FC<FocusSessionProps> = ({
         </div>
 
         {/* Soundscape Selector Bar */}
-        <div className="mt-4 flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] p-1 text-xs">
-          <span className="px-2 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+        <div className="mt-4 flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] p-1 text-xs max-w-full overflow-x-auto">
+          <span className="px-2 text-[10px] font-semibold uppercase tracking-wider text-slate-400 shrink-0">
             Audio:
           </span>
           {[
@@ -270,7 +270,7 @@ export const FocusSession: React.FC<FocusSessionProps> = ({
               key={item.id}
               type="button"
               onClick={() => setSoundscape(item.id as any)}
-              className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors ${
+              className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors shrink-0 ${
                 soundscape === item.id
                   ? 'bg-indigo-600 text-white shadow-sm'
                   : 'text-slate-400 hover:text-white'

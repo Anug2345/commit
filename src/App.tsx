@@ -36,7 +36,7 @@ import {
   setUserOnboarded,
 } from './utils/storage';
 import { INITIAL_STATS, INITIAL_HISTORY, DEFAULT_RESTRICTED_APPS, INITIAL_PLATFORM_CONFIG, INITIAL_COACH_INSIGHTS } from './data/initialData';
-import { Sparkles, Shield, Clock, Flame, ArrowRight, Lock, CheckCircle2, RefreshCw, Zap, Trophy } from 'lucide-react';
+import { Sparkles, Shield, Clock, Flame, ArrowRight, Lock, CheckCircle2, RefreshCw, Zap, Trophy, Target, Award, Sliders, Brain } from 'lucide-react';
 import { playSuccessChime } from './utils/audio';
 
 export default function App() {
@@ -323,7 +323,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 px-4 sm:px-6 py-6 sm:py-8 max-w-6xl mx-auto w-full">
+      <main className="flex-1 px-3 sm:px-6 py-4 sm:py-8 max-w-6xl mx-auto w-full pb-24 md:pb-8">
         {/* If user is in active focus session */}
         {sessionState === 'focusing' && activeCommitment && (
           <FocusSession
@@ -591,6 +591,75 @@ export default function App() {
           setUserOnboarded(true);
         }}
       />
+
+      {/* Mobile Bottom Navigation Bar (md:hidden) */}
+      {sessionState !== 'focusing' && sessionState !== 'completed' && (
+        <nav
+          id="mobile-bottom-nav"
+          className="fixed bottom-0 left-0 right-0 z-40 md:hidden border-t border-white/[0.08] bg-[#07080CEE] backdrop-blur-xl px-2 py-1.5 shadow-2xl"
+        >
+          <div className="grid grid-cols-4 items-center justify-around">
+            <button
+              id="mobile-tab-dashboard"
+              type="button"
+              onClick={() => setCurrentTab('dashboard')}
+              className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-all ${
+                currentTab === 'dashboard'
+                  ? 'text-indigo-400 bg-indigo-500/10 font-bold'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Target className="h-4 w-4 mb-0.5" />
+              <span className="text-[10px] tracking-tight">Focus</span>
+            </button>
+
+            <button
+              id="mobile-tab-history"
+              type="button"
+              onClick={() => setCurrentTab('history')}
+              className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-all relative ${
+                currentTab === 'history'
+                  ? 'text-indigo-400 bg-indigo-500/10 font-bold'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Award className="h-4 w-4 mb-0.5" />
+              <span className="text-[10px] tracking-tight">Rewards</span>
+              {stats.completedSessionsCount > 0 && (
+                <span className="absolute top-1 right-2.5 flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              )}
+            </button>
+
+            <button
+              id="mobile-tab-insights"
+              type="button"
+              onClick={() => setCurrentTab('insights')}
+              className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-all relative ${
+                currentTab === 'insights'
+                  ? 'text-indigo-400 bg-indigo-500/10 font-bold'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Brain className="h-4 w-4 mb-0.5" />
+              <span className="text-[10px] tracking-tight">AI Coach</span>
+            </button>
+
+            <button
+              id="mobile-tab-settings"
+              type="button"
+              onClick={() => setCurrentTab('settings')}
+              className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-all ${
+                currentTab === 'settings'
+                  ? 'text-indigo-400 bg-indigo-500/10 font-bold'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Sliders className="h-4 w-4 mb-0.5" />
+              <span className="text-[10px] tracking-tight">Settings</span>
+            </button>
+          </div>
+        </nav>
+      )}
     </div>
   );
 }

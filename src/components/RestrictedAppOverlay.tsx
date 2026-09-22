@@ -20,8 +20,8 @@ export const RestrictedAppOverlay: React.FC<RestrictedAppOverlayProps> = ({
   if (!app || !commitment) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#07080CEE] backdrop-blur-xl animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md rounded-3xl border border-white/[0.12] bg-[#0E1018] p-6 sm:p-8 text-center text-white shadow-2xl space-y-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#07080CEE] backdrop-blur-xl animate-in fade-in duration-200">
+      <div className="relative w-full max-w-md max-h-[92dvh] overflow-y-auto rounded-3xl border border-white/[0.12] bg-[#0E1018] p-5 sm:p-7 text-center text-white shadow-2xl space-y-5">
         {/* Close Button */}
         <button
           onClick={onClose}
