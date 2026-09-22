@@ -1,0 +1,6 @@
+{
+  "name": "COMMIT - Earn Your Screen Time",
+  "description": "AI-powered productivity app that turns what you need to accomplish into focused commitments, restricts distracting apps, and restores your screen time when you keep your word.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
